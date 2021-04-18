@@ -1,10 +1,4 @@
 #!/usr/bin/env nextflow
 
 
-var="nextflow.varaiable"
-
-
-params.read="read.fastq"
-
-
-println "This is a nextflow parameter: $params.read and nextflow script variable: $var"
+println "\nI want to BLAST $params.query to $params.dbDir/$params.dbName using $params.threads CPUs and output it to $params.outdir\n"
