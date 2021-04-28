@@ -4,17 +4,12 @@
 
 * Quality control of hifi long reads
 * Estimation of major genome features such as size, repeatitiveness, heterozygosity 
-* De novo genome assembly
+* De novo genome assembly using either flye or Hifiasm
 * Assesment of assembly metrics such as N50 contig
-* Assembly contamination interrogation and decontamination
-* Quality control of hifi long reads 
-* Estimation of major genome features such as size, repeatitiveness, heterozygosity
-* De novo genome assembly
-* Assesment of assembly metrics such as N50 contig
-* Assembly contamination interrogation and decontamination 
-* Assembly gene density assessment using BUSCOs
+* Interrogation of assembly contamination and decontamination 
+* BUSCO assessment of draft genome assemblies
 
-## Run the pipeline
+## Run the pipeline with default hifiasm mode
 
 ```nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler hifiasm```
 
@@ -22,6 +17,6 @@
 
 ```nextflow run WORMpipe.nf -help```
 
-## To restart the run from last succesful steps
+## To restart the run from last succesful steps with flye assembly mode
 
 ```nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler --flye -resume```
