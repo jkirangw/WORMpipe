@@ -15,7 +15,7 @@
 
 ## For help options
 
-``` nextflow run WORMpipe.nf -help
+```nextflow run WORMpipe.nf -help```
 
 ## For restart the run from last succesful steps
 
