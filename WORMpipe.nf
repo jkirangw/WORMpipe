@@ -119,13 +119,18 @@ process run_convertFasta {
 	path fa from fasta_ch
 
 	output:
+<<<<<<< HEAD
 	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap_ch, blobtools2_ch 
+=======
+	file "${fa.baseName}.fa" into blast, minimap2, blobtools2 
+>>>>>>> 0a001395067f3df5184f2b69c968cf3c36079008
 
 	script:
 	"""
 	awk '/^S/{print ">"\$2;print \$3}' ${fa} > "${fa.baseName}".fa
 	"""
 }
+<<<<<<< HEAD
 
 // Assembly metrics evaluation
 process run_quast {
@@ -169,6 +174,8 @@ process run_blast {
 	"""
 
 }
+=======
+>>>>>>> 0a001395067f3df5184f2b69c968cf3c36079008
 workflow.onComplete { 
 	println ( workflow.success ? "\nDone! -> Thank you for using WORMpipe" : "error!" )
 }
