@@ -13,10 +13,10 @@
 
 ```nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler hifiasm```
 
-## For help options
+## For help 
 
 ```nextflow run WORMpipe.nf -help```
 
-## For restart the run from last succesful steps
+## To restart the run from last succesful steps
 
 ```nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler --flye -resume```
