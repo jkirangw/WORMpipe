@@ -5,9 +5,9 @@
 * Quality control of hifi long reads
 * Estimation of major genome features such as size, repeatitiveness, heterozygosity 
 * De novo genome assembly
-* Assesment of assembly metrics
-* Assembly contanination interrogation and decontamination
-* Assembly gene density assesment 
+* Assesment of assembly metrics such as N50 contig
+* Assembly contamination interrogation and decontamination
+* Assembly gene density assessment using BUSCOs
 
 ## Run the pipeline
 
