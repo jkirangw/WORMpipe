@@ -35,7 +35,7 @@ if(params.help){
 Channel
    .fromPath(params.read)
    .ifEmpty { error "Cannot find any reads matching: ${params.read}" }
-   .into { fastp_ch; jellyfish_ch; assembly_ch; flye_ch; hifiasm_ch; minimap2_ch }
+   .into { fastp_ch; jellyfish_ch; assembly_ch; flye_ch; hifiasm_ch; minimap1_ch }
 	
 // read preprocessing
 process run_fastp {
@@ -119,7 +119,7 @@ process run_convertFasta {
 	path fa from fasta_ch
 
 	output:
-	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap_ch, blobtools2_ch 
+	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap2_ch, blobtools2_ch1 
 
 	script:
 	"""
@@ -156,7 +156,7 @@ process run_blast {
 
 	output:
 	file "*"
-	file('*.blast.out') into blobtools2
+	file('*.blast.out') into blobtools2_ch2
 
 	"""
 	blastn -query $fasta \
@@ -169,6 +169,30 @@ process run_blast {
 	"""
 
 }
+
+// Run mapping
+
+process run_minimap2 {
+	tag "$read_file"
+	tag "$assembly_fasta"
+	publishDir "${params.outdir}/minimap2_result", mode: 'copy'
+ 
+	input:
+	path read_file from  minimap1_ch
+	path assembly_fasta from minimap2_ch
+
+	output:
+	file('*sorted.bam') into blobtools2_ch3
+
+	"""
+	minimap2 -ax map-pb $assembly_fasta $read_file  > ${assembly_fasta}.aln.sam  
+	samtools view -bS ${assembly_fasta}.aln.sam -o ${assembly_fasta}.aln.sam.bam
+	samtools sort ${assembly_fasta}.aln.sam.bam -o ${assembly_fasta}.aln.sam.sorted.bam
+	samtools index ${assembly_fasta}.aln.sam.sorted.bam
+	rm -r *.sam  *.sam.bam
+	"""
+}
+
 workflow.onComplete { 
 	println ( workflow.success ? "\nDone! -> Thank you for using WORMpipe" : "error!" )
 }
