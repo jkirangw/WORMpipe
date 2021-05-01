@@ -193,6 +193,26 @@ process run_minimap2 {
 	"""
 }
 
+// Run blobtools
+
+process run_blobtools {
+	publishDir "${params.outdir}/blobtools2_result", mode: 'copy'
+
+	input:
+	path fasta from blobtools2_ch1
+	path cov from blobtools2_ch3
+	path hits from blobtools2_ch2
+
+	output:
+	file("*")
+
+	"""
+	blobtools create --fasta $fasta --cov $cov --hits $hits --taxdump $params.taxdump ${fasta}_blobdir
+	"""
+
+
+}
+
 workflow.onComplete { 
 	println ( workflow.success ? "\nDone! -> Thank you for using WORMpipe" : "error!" )
 }
