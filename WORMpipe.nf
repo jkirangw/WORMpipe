@@ -196,6 +196,7 @@ process run_minimap2 {
 // Run blobtools
 
 process run_blobtools {
+	tag "$fasta"
 	publishDir "${params.outdir}/blobtools2_result", mode: 'copy'
 
 	input:
