@@ -82,7 +82,6 @@ process run_jellyfish {
 
 // Genome assembly
 
-
 process run_genome_assembly {
 	tag "$read_file"
 	publishDir "${params.outdir}/assembly_result", mode: 'copy'
@@ -119,7 +118,7 @@ process run_convertFasta {
 	path fa from fasta_ch
 
 	output:
-	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap2_ch, blobtools2_ch1 
+	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap2_ch, busco_ch, blobtools2_ch1 
 
 	script:
 	"""
@@ -142,7 +141,6 @@ process run_quast {
 	"""
 	quast $fas -o "${fas.baseName}".quast	
 	"""
-
 }
 
 // Blast_ch 
@@ -167,7 +165,6 @@ process run_blast {
 	       -num_threads $params.threads \
 	       -out ${fasta.baseName}.blast.out
 	"""
-
 }
 
 // Run mapping
@@ -193,9 +190,27 @@ process run_minimap2 {
 	"""
 }
 
+// Run busco analysis
+
+process run_busco {
+	tag"$fa"
+	publishDir "${params.outdir}/busco_result", mode: 'copy'
+	
+	input:
+	path fa from busco_ch
+
+	output:
+	file "*"
+
+	"""
+	busco -i $fa -l nematoda_odb10 -o ${fa}.out -m genome 
+	"""
+}
+
 // Run blobtools
 
 process run_blobtools {
+	tag "$busco_out"
 	tag "$fasta"
 	publishDir "${params.outdir}/blobtools2_result", mode: 'copy'
 
@@ -205,17 +220,14 @@ process run_blobtools {
 	path hits from blobtools2_ch2
 
 	output:
-	file("*")
+	file "*"
 
 	"""
-	blobtools create --fasta $fasta --cov $cov --hits $hits --taxdump $params.taxdump ${fasta}_blobdir
+	blobtools create --fasta $fasta \
+			 --cov $cov \
+		         --hits $hits \
+			 --taxdump $params.taxdump \
+			 ${fasta}_blobdir
 	"""
-
-
 }
-
-workflow.onComplete { 
-	println ( workflow.success ? "\nDone! -> Thank you for using WORMpipe" : "error!" )
-}
-
 
