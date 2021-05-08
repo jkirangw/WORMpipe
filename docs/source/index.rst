@@ -9,7 +9,7 @@ Welcome to WORMpipe's documentation!
 WORMpipe is a genome analysis pipeline for:
 --------------------------------------------
 
--  Quality control of hifi DNA sequence reads
+-  Quality control of HiFi DNA sequence reads
 -  Estimation of major genome features such as size, repetitiveness,
    heterozygosity
 -  De novo genome assembly using either flye or Hifiasm
