@@ -56,9 +56,3 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-rst_epilog = """
-
-.. |WORMpipe_pipeline| image:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
-           :alt: WORMpipe_pipeline
-
-"""

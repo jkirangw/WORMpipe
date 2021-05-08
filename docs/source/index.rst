@@ -24,7 +24,8 @@ This is a worm genome analysis pipeline for:
 Pipeline flow chart
 -------------------
 
-|WORMpipe_pipeline| 
+.. image:: ./WORMpipe_flowchart.png
+    :alt: WORMpipe analysis flow
 
 Run the pipeline with default hifiasm mode
 ------------------------------------------
