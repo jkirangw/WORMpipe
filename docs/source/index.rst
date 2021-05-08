@@ -10,10 +10,7 @@ Welcome to WORMpipe's documentation!
    :maxdepth: 2
    :caption: Contents
 
-   WORMpipe overview
    Installation
-   Running WORMpipe
-   Output Files
 
 This is a worm genome analysis pipeline for:
 --------------------------------------------
