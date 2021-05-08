@@ -6,12 +6,6 @@
 Welcome to WORMpipe's documentation!
 ====================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   Installation
-
 This is a worm genome analysis pipeline for:
 --------------------------------------------
 
@@ -22,6 +16,14 @@ This is a worm genome analysis pipeline for:
 -  Assessment of assembly metrics such as N50 contig
 -  Interrogation of assembly contamination and decontamination
 -  BUSCO assessment of draft genome assemblies
+
+.. toctree::
+:maxdepth: 2
+:caption: Contents:
+
+Installation
+Running WORMpipe
+Output Files
 
 Pipeline flow chart
 -------------------
