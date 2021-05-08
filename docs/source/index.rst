@@ -10,6 +10,7 @@ Welcome to WORMpipe's documentation!
    :maxdepth: 2
    :caption: Contents
 
+   Installation
 
 This is a worm genome analysis pipeline for:
 --------------------------------------------
