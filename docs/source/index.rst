@@ -10,9 +10,6 @@ Welcome to WORMpipe's documentation!
    :maxdepth: 2
    :caption: Contents
 
-WORMpipe
-========
-
 This is a worm genome analysis pipeline for:
 --------------------------------------------
 
@@ -27,10 +24,7 @@ This is a worm genome analysis pipeline for:
 Pipeline flow chart
 -------------------
 
-.. image:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
-   :alt: WORMpipe pipeline 
-
-   
+|WORMpipe_pipeline| 
 
 Run the pipeline with default hifiasm mode
 ------------------------------------------
