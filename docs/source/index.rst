@@ -22,6 +22,9 @@ This is a worm genome analysis pipeline for:
    :caption: Contents:
 
    Installation
+   Input
+   Execution
+   Output
 
 Pipeline flow chart
 -------------------
