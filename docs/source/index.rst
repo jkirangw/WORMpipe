@@ -26,7 +26,7 @@ Pipeline flow chart
 -------------------
 
 .. figure:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
-  :alt: WORMpipe
+      :alt: WORMpipe pipeline
 
 Run the pipeline with default hifiasm mode
 ------------------------------------------
