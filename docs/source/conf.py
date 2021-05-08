@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Wormpipe'
+project = 'WORMpipe'
 copyright = '2021, Joseph Kirangwa'
 author = 'Joseph Kirangwa'
 

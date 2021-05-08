@@ -8,13 +8,41 @@ Welcome to Wormpipe's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
+WORMpipe
+========
 
+This is a worm genome analysis pipeline for:
+--------------------------------------------
 
-Indices and tables
-==================
+-  Quality control of hifi long reads
+-  Estimation of major genome features such as size, repetitiveness,
+   heterozygosity
+-  De novo genome assembly using either flye or Hifiasm
+-  Assessment of assembly metrics such as N50 contig
+-  Interrogation of assembly contamination and decontamination
+-  BUSCO assessment of draft genome assemblies
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Pipeline flow chart
+-------------------
+
+.. figure:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
+   :alt: alt text
+
+   alt text
+
+Run the pipeline with default hifiasm mode
+------------------------------------------
+
+``nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler hifiasm``
+
+For help
+--------
+
+``nextflow run WORMpipe.nf -help``
+
+To restart the run from the last successful steps with flye assembly mode
+-------------------------------------------------------------------------
+
+``nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler --flye -resume``
