@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Wormpipe's documentation!
+Welcome to WORMpipe's documentation!
 ====================================
 
 .. toctree::
@@ -27,10 +27,10 @@ This is a worm genome analysis pipeline for:
 Pipeline flow chart
 -------------------
 
-.. figure:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
-   :alt: alt text
+.. image:: https://github.com/jkirangw/WORMpipe/blob/main/WORMpipe_flowchart.png
+   :alt: WORMpipe pipeline 
 
-   alt text
+   
 
 Run the pipeline with default hifiasm mode
 ------------------------------------------
