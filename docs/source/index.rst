@@ -18,10 +18,10 @@ This is a worm genome analysis pipeline for:
 -  BUSCO assessment of draft genome assemblies
 
 .. toctree::
-:maxdepth: 2
-:caption: Contents:
+   :maxdepth: 2
+   :caption: Contents:
 
-Installation
+   Installation
 
 Pipeline flow chart
 -------------------
