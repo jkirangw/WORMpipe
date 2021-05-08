@@ -8,7 +8,7 @@ Welcome to WORMpipe's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Contents:
 
    Installation
 
@@ -43,3 +43,10 @@ To restart the run from the last successful steps with flye assembly mode
 -------------------------------------------------------------------------
 
 ``nextflow run WORMpipe.nf -c WORMpipe.config --reads 312-11_deduplicated.ccs.fastq --assembler --flye -resume``
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
