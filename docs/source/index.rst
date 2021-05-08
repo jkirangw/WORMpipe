@@ -6,7 +6,7 @@
 Welcome to WORMpipe's documentation!
 ====================================
 
-This is a worm genome analysis pipeline for:
+WORMpipe is a genome analysis pipeline for:
 --------------------------------------------
 
 -  Quality control of hifi DNA sequence reads
@@ -16,6 +16,8 @@ This is a worm genome analysis pipeline for:
 -  Assessment of assembly metrics such as N50 contig
 -  Interrogation of assembly contamination and decontamination
 -  BUSCO assessment of draft genome assemblies
+-  Draft assembly scaffolding exploiting Hi-C data
+-  Genome annotation
 
 .. toctree::
    :maxdepth: 2
