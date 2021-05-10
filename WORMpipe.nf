@@ -118,7 +118,7 @@ process run_convertFasta {
 	path fa from fasta_ch
 
 	output:
-	file "${fa.baseName}.fa" into quast_ch, blast_ch, minimap2_ch, busco_ch, blobtools2_ch1 
+	file "${fa.baseName}.fa" into assemblyStats_ch, blast_ch, minimap2_ch, busco_ch, blobtools2_ch1 
 
 	script:
 	"""
@@ -127,21 +127,24 @@ process run_convertFasta {
 }
 
 // Assembly metrics evaluation
-process run_quast {
-	
-	tag "$fas"
-	publishDir "${params.outdir}/quast_result", mode: 'copy'
+
+process run_assemblyStats {
+	tag "$fasta"
+	publishDir "${params.outdir}/assemblyStats_result", mode: 'copy'
 
 	input:
-	path fas from quast_ch
+	path fasta from assemblyStats_ch
 
 	output:
 	file "*"
 
 	"""
-	quast $fas -o "${fas.baseName}".quast	
+	assembly_stats ${fasta} > ${fasta}.txt	
+	bbstats.sh in=${fasta} > ${fasta}.statsbbmap.txt
+	quast ${fasta} -o "${fasta.baseName}".quast	
 	"""
 }
+
 
 // Blast_ch 
 
@@ -169,7 +172,7 @@ process run_blast {
 
 // Run mapping
 
-process run_minimap2 {
+process run_mapping {
 	tag "$read_file"
 	tag "$assembly_fasta"
 	publishDir "${params.outdir}/minimap2_result", mode: 'copy'
@@ -207,7 +210,7 @@ process run_busco {
 	"""
 }
 
-// Run blobtools
+// Run blobtools2
 
 process run_blobtools {
 	tag "$busco_out"
