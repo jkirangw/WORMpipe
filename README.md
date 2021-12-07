@@ -2,12 +2,18 @@
 
 ## This is a worm genome analysis pipeline for:
 
-* Quality control of hifi long reads
-* Estimation of major genome features such as size, repeatitiveness, heterozygosity 
-* De novo genome assembly using either flye or Hifiasm
-* Assesment of assembly metrics such as N50 contig
-* Interrogation of assembly contamination and decontamination 
+* Quality control of hifi long reads using fastp, kmer counting using either jellyfish, kmc, kat
+* Estimation of major genome features such as size, repeatitiveness, heterozygosity using genomescope or Bbtools
+* De novo genome assembly using either flye,Hifiasm,Hicanu,Nextdenovo
+* Assesment of assembly metrics such as N50 contig using Quast
+* Interrogation of assembly contamination and decontamination using blobtools2
 * BUSCO assessment of draft genome assemblies
+* Assembly polishing with Hapo-G,NextPolish, Racon or Pilon
+* Purge false duplicates with purge_dups or purge_haplotigs
+* Mapping RNA-SEQ reads to draft assembly using GMAP-GSNAP
+* Evaluation of mapped reads with qualimap
+* Genome annotation with BRAKER2 pipeline
+
 
 ## Pipeline flow chart
 
