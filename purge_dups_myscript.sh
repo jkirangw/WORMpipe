@@ -13,18 +13,18 @@ do
 	minimap2 -xmap-pb $pri_asm $i | gzip -c - > $i.paf.gz
 done
 #pbcstat *.paf.gz #(produces PB.base.cov and PB.stat files)
-#calcuts PB.stat > cutoffs 2>calcults.lo
+calcuts PB.stat > cutoffs 2>calcults.lo
 
 #split an assembly  and do self-self alignment.
 
-#split_fa $pri_asm > $pri_asm.split
+split_fa $pri_asm > $pri_asm.split
 
-#minimap2 -xasm5 -DP $pri_asm.split $pri_asm.split | gzip -c - > $pri_asm.split.self.paf.gz 
+minimap2 -xasm5 -DP $pri_asm.split $pri_asm.split | gzip -c - > $pri_asm.split.self.paf.gz 
 
 #Purge haplotigs and overlaps
 
-#purge_dups -2 -T cutoffs -c PB.base.cov 312-4-hapog.fasta.split.self.paf.gz  > dups.bed 2> purge_dups.log
+purge_dups -2 -T cutoffs -c PB.base.cov 312-4-hapog.fasta.split.self.paf.gz  > dups.bed 2> purge_dups.log
 
 #Get purged primary and haplotig sequences from draft assembly
 
-#get_seqs -e dups.bed $pri_asm 
+get_seqs -e dups.bed $pri_asm 
